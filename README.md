@@ -4,7 +4,13 @@ An upgrade path to of increased utility via connectivity and development.
 
 ![lab](/images/evening-lab.png)
 
-### Background
+### Getting Started
+
+There are several methods to get started, but the most elightening is the removal of the outer shells to get a look how the robot is constructed.
+
+![internals](/images/no-covers.jpg)
+
+### Working
 
 Originally followed [this](https://aibohack.com/icybie/sic_rs232.htm) source. The layout is demonstrated as:
 
