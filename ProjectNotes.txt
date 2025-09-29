@@ -1,10 +1,10 @@
 July 2025
-iCybie development paths
+iCybie development refinement notes
 
 21.07.2025
     1618: Reigniting the super-icybie development pathway and have repo'ed all the tools I have. Requested anything further and advice from the original programmer of this idea.
     1938: Reached the end of what I can document in one place. Investigating the dual-voltage input to synthesize a power connection where the NiMH cells once were.
 29.09.2025
     1134: Organized the set of sources and have this and SDK before me. Have a 40Ah 12V battery that I purchased some years ago for Rodney that I can make use of on the iCybie workstation. Will most likely correct the mistakes of the power module and see if power-configuration is correct.
-     
+    
     
