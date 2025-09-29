@@ -52,4 +52,5 @@ Where the connection between a serial port terminal and the iCybie is through a 
 
 ### Specifications
 
-These are listed [here](/spec/README.md).
+* These are listed [here](/spec/README.md).
+* The [cartridges](https://www.pilothobbies.com/i-cybie-cartridge-programmer-using-arduino-mega-2560/).
