@@ -6,5 +6,7 @@ iCybie development refinement notes
     1938: Reached the end of what I can document in one place. Investigating the dual-voltage input to synthesize a power connection where the NiMH cells once were.
 29.09.2025
     1134: Organized the set of sources and have this and SDK before me. Have a 40Ah 12V battery that I purchased some years ago for Rodney that I can make use of on the iCybie workstation. Will most likely correct the mistakes of the power module and see if power-configuration is correct.
+05.10.2025
+    1054: Working on the MAX233 or DFRobot TTL (3v3) to start accessing iCybie and doing new work.
     
     
