@@ -1,0 +1,27 @@
+October 2025
+Commissioning a new Volatco board
+
+-- Baseline Tests --
+HOST LOAD
+6 SELFTEST
+6 AUTOTEST
+
+-- pF System Install and Initialize --
+STOCK LOAD
+2205 LOAD
+1665 LOAD
+SERIAL LOAD PLUG
+<spacebar>
+20 DRIVE HI
+<set the correct date/time>
+-- Install polyForth --
+AFORTH
+STOCK LOAD
+1671 LOAD WRITE-FLASH
+BULK LOAD  0 DRIVE  24000 0 9 BLOCKS  0 24000 9 MATCHES
+<remove J6 boot jumper, momentarily contact J4 (reset)>
+<spacebar>
+Should see 'hi'
+-- Accessing polyForth --
+Start arrayFORTH-3
+SERIAL LOAD
