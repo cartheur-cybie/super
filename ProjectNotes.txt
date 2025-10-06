@@ -17,5 +17,6 @@ iCybie development refinement notes
     1247: Begin with ensuring the right cable-plug assignments for Tx, Rx, and GND using voltmeter.
     1249: Thusly: Tx - tip; Rx - center; GND - base.
     1325: Soldering done. continuity check successful. Connected-up to a waiting iCybie.
+    1333: Shifting-over to the power supply checks for Volatco.
     
     
