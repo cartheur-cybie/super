@@ -16,5 +16,6 @@ iCybie development refinement notes
     1246: Starting-in on the cable for the DFRobot FTDI232R device. Could also be the DSD device, if desired. Let's go!
     1247: Begin with ensuring the right cable-plug assignments for Tx, Rx, and GND using voltmeter.
     1249: Thusly: Tx - tip; Rx - center; GND - base.
+    1325: Soldering done. continuity check successful. Connected-up to a waiting iCybie.
     
     
