@@ -12,7 +12,6 @@ iCybie development refinement notes
     1453: Can confirm that the communication box is working properly. It is ready for the next step: The iCybie communications test.
     1721: The serial box is working but chunked on the MAX233A generating 5v TTL that will fry a cybie. Ordering a MAX3232 that is a 3v3 TTL.
     1736: Not pin-compatible, unlike what Lumo says. Will move-on to the DFRobot alternative.
-<<<<<<< HEAD
     1743: Next session will solder the connector such that transmit wires are short and the connection to USB long.
 =======
 06.10.2025
@@ -21,6 +20,6 @@ iCybie development refinement notes
     1249: Thusly: Tx - tip; Rx - center; GND - base.
     1325: Soldering done. continuity check successful. Connected-up to a waiting iCybie.
     1333: Shifting-over to the power supply checks for Volatco.
->>>>>>> dbe19d1644b271eeea276dc1d9f7009ee09a95bf
+    1809: These were successful.
     
     
