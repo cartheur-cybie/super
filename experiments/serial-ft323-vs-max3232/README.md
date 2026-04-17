@@ -52,6 +52,15 @@ Only runs that pass all 3 are considered valid for comparison.
 | `results-log.md` | Structured run capture with SIC-specific observations |
 | `decision.md` | Evidence summary and path recommendation |
 
+## Tooling Pipeline
+
+| Location | Purpose |
+|---|---|
+| `../../dev/serial-ops-sdk/README.md` | Extracted SDK serial code map + upstream pin |
+| `../../dev/serial-ops-sdk/RUNBOOK.md` | Repeatable Linux run workflow |
+| `../../dev/serial-ops-sdk/validate-link.sh` | Quick/full link validation for FT323 vs MAX3232 sessions |
+| `../../dev/serial-ops-sdk/sync-from-sdk.sh` | Refresh copied files from sibling `../sdk` repo |
+
 ## Photo References
 
 Use these during bench setup to reduce wiring mistakes:
