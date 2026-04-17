@@ -1,17 +1,17 @@
 # DFRobot FT323 Breakout + 3-Wire 3.5mm iCybie Connector (No-Solder)
 
-Use this page for the direct TTL path using a ready-to-go DFRobot FT323/FT232-class breakout and a 3-wire 3.5mm connector for SIC serial.
+Use this page for the direct TTL path with a ready-to-go DFRobot FT323/FT232-style breakout and a 3-wire 3.5mm connector for SIC serial.
 
 ## Preconditions
 
-This page assumes the internal Super iCybie serial upgrade soldering is already completed according to the existing project documentation.
-No additional soldering on the iCybie is covered here.
-This page also assumes CROMINST is already burned/installed on the SIC.
+This page assumes the internal Super iCybie serial upgrade soldering has already been done per the project docs.
+No extra iCybie soldering is covered here.
+It also assumes CROMINST is already burned/installed on the SIC.
 
 ## Hardware Style for This Build
 
-Use plug-in jumper wiring on the breakout's bottom header pins.
-Do not solder side wires onto the breakout board for this workflow.
+Use plug-in jumpers on the breakout's bottom header pins.
+Skip side-wire soldering on the breakout for this workflow.
 
 ## Wiring Summary (Use This First)
 
@@ -55,15 +55,15 @@ Do not connect breakout `VCC` to iCybie serial lines.
 | Identify bottom-header FT323 pins: `TXD`, `RXD`, `GND` | ☐ |
 | Identify iCybie cable conductors: `tip`, `ring`, `sleeve` | ☐ |
 | Plug jumpers on bottom header: `TXD -> ring(center)`, `RXD -> tip`, `GND -> sleeve(base)` | ☐ |
-| Secure wires so they cannot slip during testing | ☐ |
+| Secure wires so they do not slip during testing | ☐ |
 | Verify connector orientation before powering SIC | ☐ |
 
 ## Preflight Electrical Checks (Before SIC Connection)
 
 | Check | Pass condition |
 |---|---|
-| Continuity | end-to-end continuity for each signal |
-| Isolation | no short between any two conductors |
+| Continuity | End-to-end continuity for each signal |
+| Isolation | No short between any two conductors |
 | Cross mapping | FT323 `TXD -> SIC RX`, FT323 `RXD -> SIC TX` |
 | Ground | FT323 ground continuous to SIC ground |
 | TTL level | SIC-facing high in safe 3.3V domain (not ~5V) |
@@ -94,14 +94,14 @@ Do not connect breakout `VCC` to iCybie serial lines.
 
 ## No-CROMINST Recovery Path
 
-If CROMINST is not installed on SIC, the FT323 path may show serial activity but fail the expected ops handshake flow.
+If CROMINST is not installed on SIC, the FT323 path might show serial activity but still fail the expected ops handshake flow.
 
 Recovery steps:
 
 1. Boot SIC with a CROMINST-capable cartridge/setup.
 2. Use terminal at `9600 8N1` and verify repeating `U` stream.
 3. Press a key to stop `U` stream and enter CROMINST menu.
-4. Run install flow (`I`, then `YES`) and wait for completion.
+4. Run the install flow (`I`, then `YES`) and wait for completion.
 5. Reboot SIC and rerun FT323 quick validation:
 
 ```bash
@@ -110,7 +110,11 @@ Recovery steps:
 
 ## Photo References
 
-### Connection Table (Photo Companion)
+| Reference | Image |
+|---|---|
+| Actual FT232RL breakout used for this path | <img src="../../images/dfrobot-ftdi" alt="DFRobot FT323/FT232RL breakout board" width="260"> |
+
+### Connection Workflow (Between Photos)
 
 | Breakout Pin | 3-Wire Cable Label | Stereo Connector Conductor | SIC Signal |
 |---|---|---|---|
@@ -120,6 +124,5 @@ Recovery steps:
 
 | Reference | Image |
 |---|---|
-| Actual FT232RL breakout used for this path | <img src="../../images/dfrobot-ftdi" alt="DFRobot FT323/FT232RL breakout board" width="260"> |
 | TTL cable orientation reference | <img src="../../images/cablecyble.jpg" alt="TTL cable orientation" width="260"> |
 | SIC serial connector area | <img src="../../images/serialconnect.jpg" alt="SIC serial connector area" width="260"> |
