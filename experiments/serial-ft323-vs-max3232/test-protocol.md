@@ -1,102 +1,93 @@
 # Test Protocol (FT323 vs MAX3232)
 
-## 0) Controls (constant across both paths)
+## 0) Controls (hold constant)
 
-* Same SIC unit for A/B pair (start with Betix if CROM-confirmed).
-* Same host machine, terminal app, and USB port where possible.
-* Terminal settings fixed: `9600 baud`, `8 data bits`, `no parity`, `no handshake`.
-* Same power arrangement per pair (do not change bench power mid-comparison).
+| Control | Requirement |
+|---|---|
+| SIC unit | Same SIC for A/B pair (start with Betix if CROM-confirmed) |
+| Host | Same host machine, terminal app, and USB port where possible |
+| Terminal config | `9600 baud`, `8 data bits`, `no parity`, `no handshake` |
+| Power setup | Same power arrangement per pair; do not change mid-comparison |
 
 ## 1) Preflight Safety Gate (mandatory)
 
-Photo checkpoints:
+### 1.1 Photo checkpoints
 
-* Internal layout reference: `../../images/connections.jpg`
-* Serial area close-up: `../../images/serialconnect.jpg`
-* RS-232 pinout reference: `../../rs232-ftdi/DB9-Pinout.jpg`
+| Checkpoint | Reference |
+|---|---|
+| Internal layout | `../../images/connections.jpg` |
+| Serial area close-up | `../../images/serialconnect.jpg` |
+| RS-232 pinout | `../../rs232-ftdi/DB9-Pinout.jpg` |
 
-### 1.1 Wiring identity
+### 1.2 Wiring + voltage checks
 
-* Verify continuity for each conductor end-to-end before connecting SIC.
-* Confirm no shorts between signal and ground.
-
-### 1.2 SIC-side signal mapping
-
-Use your known cable assignment from `ProjectNotes.txt` (2025-10-06 12:49):
-
-* `Tx -> tip`
-* `Rx -> center`
-* `GND -> base`
-
-If a cable or adapter differs, document the exact mapping in the run notes.
-
-### 1.3 Voltage gate
-
-* Measure idle TX level at adapter output.
-* Stop run if SIC-facing logic level is not in safe 3.3V domain.
-* For RS-232 side checks, use AiboHack-style expectation that PC TX/RX on DB9 read negative idle voltage.
+| Check | Pass condition |
+|---|---|
+| Continuity | End-to-end continuity for each conductor |
+| Isolation | No shorts between signal and ground |
+| SIC mapping | `Tx -> tip`, `Rx -> center`, `GND -> base` (or explicitly documented variant) |
+| TTL voltage gate | SIC-facing logic level in safe 3.3V domain |
+| RS-232 idle check | DB9 TX/RX idle shows expected negative RS-232 voltage |
 
 ## 2) Path Setup
 
-### 2.1 Path A - FT323/FT232R direct TTL
+### 2.1 Path A: FT323/FT232R direct TTL
 
-* Connect only `TX`, `RX`, `GND` (no VCC feed to SIC serial header).
-* Confirm `adapter TX -> SIC RX` and `adapter RX -> SIC TX`.
-* If using FTDI EEPROM profile, record whether `drivers/iCybie-Serial.xml` config is applied.
-* Photo references:
-  * FT232RL board: `../../images/FT232RL.png`
-  * TTL lead orientation: `../../images/cablecyble.jpg`
+| Item | Requirement |
+|---|---|
+| Signals used | `TX`, `RX`, `GND` only (no VCC feed to SIC serial header) |
+| Cross wiring | `adapter TX -> SIC RX`, `adapter RX -> SIC TX` |
+| EEPROM profile | Record if `drivers/iCybie-Serial.xml` profile is applied |
+| Photos | `../../images/FT232RL.png`, `../../images/cablecyble.jpg` |
 
-### 2.2 Path B - MAX3232 RS-232 chain
+### 2.2 Path B: MAX3232 RS-232 chain
 
-* Build/use MAX3232 translation path in place of prior MAX233A path.
-* Validate stereo jack to DB9 mapping before SIC connection:
-  * `ground -> DB9 pin 5`
-  * `tip -> DB9 pin 2` (iCybie -> PC direction)
-  * `ring/center conductor -> DB9 pin 3` (PC -> iCybie direction)
-* Confirm no accidental MAX233A insertion in this path.
-* Photo references:
-  * RS-232 connection concept: `../../images/rs232.jpg`
-  * DB9 pinout: `../../rs232-ftdi/DB9-Pinout.jpg`
+| Item | Requirement |
+|---|---|
+| Translator | MAX3232 path only (no MAX233A in test path) |
+| DB9 mapping | `ground -> pin 5`, `tip -> pin 2` (iCybie -> PC), `ring/center -> pin 3` (PC -> iCybie) |
+| Photos | `../../images/rs232.jpg`, `../../rs232-ftdi/DB9-Pinout.jpg` |
 
 ## 3) SIC Handshake Test (primary comparator)
 
-1. Insert CROMINST-capable cartridge/setup.
-2. Connect serial path under test.
-3. Power SIC.
-4. Observe repeating `U` stream.
-5. Press any host key.
-6. Confirm `U` stream stops and CROMINST menu/prompt appears.
+| Step | Expected result |
+|---|---|
+| Insert CROMINST-capable cartridge/setup | SIC boot context ready |
+| Connect test path and power SIC | Link initializes |
+| Observe terminal | Repeating `U` stream appears |
+| Press any key | `U` stream stops |
+| Check terminal after keypress | CROMINST prompt/menu appears |
 
-Fail classification:
+### Fail classification
 
-* No `U` stream: TX path from SIC to host failed.
-* `U` stream present but keypress no effect: RX path from host to SIC failed.
-* Prompt unstable/garbled: timing/level integrity issue.
+| Symptom | Likely issue |
+|---|---|
+| No `U` stream | SIC TX path to host failed |
+| `U` stream present, keypress no effect | Host TX path to SIC failed |
+| Prompt garbled/unstable | Level/timing/integrity issue |
 
 ## 4) Stability + Behavior Pass
 
-* Keep session active for 30 minutes.
-* Every 5 minutes send a harmless keypress/command prompt interaction.
-* Track:
-  * dropped/garbled characters
-  * stalled prompt or lockup
-  * SIC resets
-  * abnormal fan behavior (explicitly note onset minute)
+| Item | Requirement |
+|---|---|
+| Duration | 30-minute active session |
+| Interaction cadence | Harmless prompt interaction every 5 minutes |
+| Log events | dropped/garbled chars, prompt stall/lockup, SIC reset, fan anomaly onset minute |
 
 ## 5) Repeatability Pass
 
-* Disconnect/reconnect once.
-* Re-run handshake test.
-* Pass only if post-reconnect behavior matches initial run.
+| Step | Pass condition |
+|---|---|
+| Controlled disconnect/reconnect | Reconnect successful |
+| Re-run handshake | Same behavior as initial run |
 
 ## 6) Run Validity Rules
 
-A run is valid only if:
+| Rule | Requirement |
+|---|---|
+| Safety gate | Passed |
+| Handshake | Full pass (`U` -> keypress -> prompt) |
+| Stability | 30-minute session completed |
+| Procedure integrity | No mid-run rewiring |
 
-* preflight safety gate passed,
-* handshake test fully passed,
-* 30-minute session completed,
-* no mid-run rewiring occurred.
-
-Invalid runs are logged but excluded from winner scoring.
+Runs failing any rule are logged as invalid and excluded from winner scoring.

@@ -1,30 +1,38 @@
 # FT323 vs MAX3232 Comparative (SIC-Specific)
 
-This experiment set compares two connector paths for Super i-Cybie serial access:
+This experiment set compares two connector paths for Super i-Cybie serial access.
 
-* `FT323/FT232R` direct TTL path (external USB serial adapter)
-* `MAX3232` level-shifted RS-232 path (AiboHack-style serial chain)
+| Path | Description |
+|---|---|
+| `FT323/FT232R` | Direct TTL path (external USB serial adapter) |
+| `MAX3232` | Level-shifted RS-232 path (AiboHack-style serial chain) |
 
 This is not a generic test track. It is grounded in project history:
 
-* `ProjectNotes.txt` (2025-10-05): MAX233A path observed as unsafe due to 5V TTL risk.
-* `ProjectNotes.txt` (2025-10-06): confirmed cable mapping workflow (`Tx`, `Rx`, `GND`) with continuity and voltmeter.
-* `ProjectNotes.txt` (2026-04-17): FTDI path observed with abnormal fan behavior.
-* `docs/RS-232 Installation and Test.pdf`: reference serial validation sequence (`9600 8N1`, repeating `U` stream, keypress to CROMINST prompt).
+| Source | Relevant finding |
+|---|---|
+| `ProjectNotes.txt` (2025-10-05) | MAX233A path observed as unsafe due to 5V TTL risk |
+| `ProjectNotes.txt` (2025-10-06) | Confirmed cable mapping workflow (`Tx`, `Rx`, `GND`) with continuity and voltmeter |
+| `ProjectNotes.txt` (2026-04-17) | FTDI path observed with abnormal fan behavior |
+| `docs/RS-232 Installation and Test.pdf` | Serial validation sequence (`9600 8N1`, repeating `U`, keypress to CROMINST prompt) |
 
 ## Goal
 
-Select the default SIC connector technology for day-to-day programming and diagnostics based on:
+Select the default SIC connector technology for day-to-day programming and diagnostics.
 
-* Electrical safety at SIC pins.
-* Stable bidirectional serial behavior.
-* Absence of robot side effects (especially fan anomalies).
-* Repeatable setup with low bench friction.
+| Decision axis | Requirement |
+|---|---|
+| Electrical safety | Safe levels at SIC pins |
+| Link behavior | Stable bidirectional serial operation |
+| Robot behavior | No side effects (especially fan anomalies) |
+| Practicality | Repeatable setup with low bench friction |
 
 ## Comparator Definition
 
-* Path A: `FT323/FT232R` direct-to-SIC TTL wiring (3.3V logic only; no 5V logic exposure).
-* Path B: `MAX3232` path via stereo jack/DB9 mapping and RS-232 translation.
+| Comparator | Definition |
+|---|---|
+| Path A | `FT323/FT232R` direct-to-SIC TTL wiring (3.3V logic only; no 5V exposure) |
+| Path B | `MAX3232` path via stereo jack/DB9 mapping and RS-232 translation |
 
 ## Canonical Validation Signal
 
@@ -38,23 +46,21 @@ Only runs that pass all 3 are considered valid for comparison.
 
 ## Files
 
-* `test-protocol.md` - exact per-run steps and fail gates.
-* `results-log.md` - structured run capture with SIC-specific observations.
-* `decision.md` - evidence summary and path recommendation.
+| File | Purpose |
+|---|---|
+| `test-protocol.md` | Exact per-run steps and fail gates |
+| `results-log.md` | Structured run capture with SIC-specific observations |
+| `decision.md` | Evidence summary and path recommendation |
 
 ## Photo References
 
 Use these during bench setup to reduce wiring mistakes:
 
-* SIC internal connection layout:
-  ![SIC serial layout](../../images/connections.jpg)
-* On-board serial connection area:
-  ![SIC serial connector area](../../images/serialconnect.jpg)
-* FT232RL reference board:
-  ![FT232RL board](../../images/FT232RL.png)
-* TTL cable orientation reference:
-  ![TTL cable reference](../../images/cablecyble.jpg)
-* RS-232 DB9 pinout:
-  ![DB9 pinout](../../rs232-ftdi/DB9-Pinout.jpg)
-* Prior ops bench reference:
-  ![Ops test reference](../../rs232-ftdi/ops-test.jpg)
+| Reference | Image |
+|---|---|
+| SIC internal connection layout | <img src="../../images/connections.jpg" alt="SIC serial layout" width="260"> |
+| On-board serial connection area | <img src="../../images/serialconnect.jpg" alt="SIC serial connector area" width="260"> |
+| FT232RL reference board | <img src="../../images/FT232RL.png" alt="FT232RL board" width="260"> |
+| TTL cable orientation reference | <img src="../../images/cablecyble.jpg" alt="TTL cable reference" width="260"> |
+| RS-232 DB9 pinout | <img src="../../rs232-ftdi/DB9-Pinout.jpg" alt="DB9 pinout" width="260"> |
+| Prior ops bench reference | <img src="../../rs232-ftdi/ops-test.jpg" alt="Ops test reference" width="260"> |
