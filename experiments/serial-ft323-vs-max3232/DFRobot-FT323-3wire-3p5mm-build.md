@@ -8,6 +8,11 @@ This page assumes the internal Super iCybie serial upgrade soldering is already 
 No additional soldering on the iCybie is covered here.
 This page also assumes CROMINST is already burned/installed on the SIC.
 
+## Hardware Style for This Build
+
+Use plug-in jumper wiring on the breakout's bottom header pins.
+Do not solder side wires onto the breakout board for this workflow.
+
 ## Wiring Summary (Use This First)
 
 | FT323 Breakout Pin | Connect To | Notes |
@@ -32,16 +37,16 @@ Do not connect breakout `VCC` to iCybie serial lines.
 |---|---|
 | DFRobot FT323/FT232 breakout (preassembled) | ☐ |
 | 3-wire 3.5mm iCybie cable/adapter | ☐ |
-| Female-female or female-male jumpers (as needed) | ☐ |
+| Female-female jumpers for bottom header pins | ☐ |
 | Meter (continuity + voltage) | ☐ |
 
 ## Setup Steps (No Solder)
 
 | Step | Check |
 |---|---|
-| Identify FT323 pins: `TXD`, `RXD`, `GND` | ☐ |
+| Identify bottom-header FT323 pins: `TXD`, `RXD`, `GND` | ☐ |
 | Identify iCybie cable conductors: `tip`, `ring`, `sleeve` | ☐ |
-| Connect jumpers: `TXD -> ring(center)`, `RXD -> tip`, `GND -> sleeve(base)` | ☐ |
+| Plug jumpers on bottom header: `TXD -> ring(center)`, `RXD -> tip`, `GND -> sleeve(base)` | ☐ |
 | Secure wires so they cannot slip during testing | ☐ |
 | Verify connector orientation before powering SIC | ☐ |
 
@@ -99,6 +104,6 @@ Recovery steps:
 
 | Reference | Image |
 |---|---|
-| FT232 breakout reference | <img src="../../images/FT232RL.png" alt="FT323/FT232 breakout reference" width="260"> |
+| Actual FT232RL breakout used for this path | <img src="../../images/FT232RL.png" alt="DFRobot FT323/FT232RL breakout board" width="260"> |
 | TTL cable orientation reference | <img src="../../images/cablecyble.jpg" alt="TTL cable orientation" width="260"> |
 | SIC serial connector area | <img src="../../images/serialconnect.jpg" alt="SIC serial connector area" width="260"> |
