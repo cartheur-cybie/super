@@ -15,6 +15,12 @@ Copied sources:
 - `libsrc/serial.c`, `libsrc/main0.c`
 - `samples/clinic/clinic.c`
 
+Local tooling added in this repo:
+
+- `validate-link.sh` - quick/full FT323 or MAX3232 serial link validator
+- `run-betix-ft323.sh` - one-command local runner for Betix FT323 quick test
+- `sync-from-sdk.sh` - refresh copied SDK files from sibling `../sdk`
+
 ## Description
 
 | File | Role |

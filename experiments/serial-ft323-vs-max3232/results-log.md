@@ -35,7 +35,12 @@ Capture and store these with each run (relative path suggestion: `experiments/se
 Run this first:
 
 ```bash
-cd /home/cartheur/ame/aiventure/aiventure-github/i-cybie/super
+./dev/serial-ops-sdk/run-betix-ft323.sh
+```
+
+Alternate explicit command:
+
+```bash
 ./dev/serial-ops-sdk/validate-link.sh --device /dev/ttyUSB0 --path FT323
 ```
 

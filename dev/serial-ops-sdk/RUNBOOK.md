@@ -27,6 +27,12 @@ id
 From this repo root:
 
 ```bash
+./dev/serial-ops-sdk/run-betix-ft323.sh
+```
+
+Or explicit validator calls:
+
+```bash
 ./dev/serial-ops-sdk/validate-link.sh --device /dev/ttyUSB0 --path FT323
 ```
 
@@ -37,6 +43,12 @@ or:
 ```
 
 Quick mode uses a timeout and treats successful CROM handshake (`#CROM11#` sequence path) as pass.
+
+Betix convenience runner:
+
+```bash
+./dev/serial-ops-sdk/run-betix-ft323.sh /dev/ttyUSB1
+```
 
 ## 4) Full readback confirmation (optional)
 
