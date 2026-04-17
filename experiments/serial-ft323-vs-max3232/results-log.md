@@ -29,3 +29,31 @@ Capture and store these with each run (relative path suggestion: `experiments/se
 * Any garbled text/timeouts:
 * Reconnect result:
 * Verdict:
+
+## Start Here: Betix FT323 First Run Template
+
+Run this first:
+
+```bash
+cd /home/cartheur/ame/aiventure/aiventure-github/i-cybie/super
+./dev/serial-ops-sdk/validate-link.sh --device /dev/ttyUSB0 --path FT323
+```
+
+Then copy/fill this block:
+
+### Run ID: YYYYMMDD-FT323-BETIX-01
+
+* SIC unit: Betix
+* Path: FT323
+* CROMINST status: preinstalled
+* Host device: /dev/ttyUSB0
+* Exact adapter model: DFRobot FT323/FT232 breakout
+* Cable mapping: TXD->ring(center), RXD->tip, GND->sleeve(base)
+* Measured idle TX voltage:
+* `U` stream observed (Y/N):
+* Keypress stopped `U` (Y/N):
+* CROM prompt observed (Y/N):
+* Fan behavior timeline:
+* Serial errors/garble:
+* Reconnect result:
+* Verdict (PASS/FAIL):
