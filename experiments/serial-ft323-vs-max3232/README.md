@@ -48,6 +48,7 @@ Only runs that pass all 3 are considered valid for comparison.
 
 | File | Purpose |
 |---|---|
+| `MAX3232-protoboard-build.md` | Pin-by-pin build and bring-up checklist for MAX3232 protoboard |
 | `test-protocol.md` | Exact per-run steps and fail gates |
 | `results-log.md` | Structured run capture with SIC-specific observations |
 | `decision.md` | Evidence summary and path recommendation |
