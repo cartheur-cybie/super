@@ -1,3 +1,24 @@
+## Repo Role
+
+This repository is the planning and experiment notebook for iCybie work.
+It is intentionally focused on:
+
+* documentation and reference preservation
+* hardware experiments and commissioning notes
+* theory, reverse-engineering context, and development logs
+
+Buildable source code and toolchains live in sibling repositories under the same top-level `icybie` parent folder.
+
+## Related Repos (Top-Level `icybie` Siblings)
+
+* `../sdk` - iCybie SDK, runtime/library sources, sample programs, and Linux workflow docs. Branch separation: `main` (current/Linux-first) and `windows-legacy` (older Windows-oriented flow).
+* `../himage` - rebuild tooling for i-Cybie HIMAGE ROM images. Branch separation: `main` (current) and `windows-legacy` (older Windows path).
+* `../icburn` - Linux cartridge flash writer for Super iCybie hardware. Branch separation: `main` (current Linux implementation) and `windows-legacy` (older Windows path).
+* `../icaud` - CLI utility for merging custom sounds into personalities. Branch separation: `main` (active branch).
+* `../yict` - personality creator (Windows-focused). Branch separation: `main` and `windows-legacy` (legacy branch retained).
+* `../TLCS900L` - TLCS-900 CPU tools and documentation (iCybie TMP91C815F context). Branch separation: `main` (active branch).
+* `../binutils-tlcs900` - TLCS-900-oriented GNU/binutils source tree. Branch separation: `tlcs900_port` (active port branch).
+
 ## Super-iCybie
 
 An upgrade path to of increased utility via connectivity and development.
