@@ -23,6 +23,14 @@ Do not solder side wires onto the breakout board for this workflow.
 
 Do not connect breakout `VCC` to iCybie serial lines.
 
+## Breakout -> 3-Wire Cable -> Stereo Connector Table
+
+| Breakout Pin | 3-Wire Cable Label | Stereo Connector Conductor | SIC Signal |
+|---|---|---|---|
+| `TXD` | `RX wire` | `ring` (center) | `SIC RX` |
+| `RXD` | `TX wire` | `tip` | `SIC TX` |
+| `GND` | `GND wire` | `sleeve` (base) | `SIC GND` |
+
 ## 3.5mm 3-Wire Connector Mapping (Repo Standard)
 
 | 3.5mm conductor | iCybie signal |
