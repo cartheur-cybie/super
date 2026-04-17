@@ -20,4 +20,6 @@ iCybie development refinement notes
     1325: Soldering done. continuity check successful. Connected-up to a waiting iCybie.
     1333: Shifting-over to the power supply checks for Volatco.
     1809: These were successful.
+17.04.2026
+    1106: Let's get these code blocks operational with our homebrew MAX233 serial connection, since FTDI causes the fan to run like crazy.
     
