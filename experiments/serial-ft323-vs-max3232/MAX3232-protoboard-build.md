@@ -16,6 +16,14 @@ Use this when building your MAX3232 board from loose IC + protoboard.
 
 ### Charge-Pump + Decoupling Capacitors
 
+Recommended values for MAX3232-class parts (use unless your exact datasheet says otherwise):
+
+* `C1 = 0.1uF`
+* `C2 = 0.1uF`
+* `C3 = 0.1uF`
+* `C4 = 0.1uF`
+* `VCC decoupler = 0.1uF` (plus optional `1uF` bulk on the board rail)
+
 | Capacitor | Between Pins |
 |---|---|
 | C1 | `pin 1 (C1+)` and `pin 3 (C1-)` |
@@ -23,8 +31,6 @@ Use this when building your MAX3232 board from loose IC + protoboard.
 | C3 | `pin 2 (V+)` and `GND` |
 | C4 | `pin 6 (V-)` and `GND` |
 | Decoupler | `pin 16 (VCC)` and `pin 15 (GND)` (place close to IC) |
-
-Use capacitor values from your exact MAX3232 datasheet/variant.
 
 ### Stereo Jack Mapping Used in This Repo
 
