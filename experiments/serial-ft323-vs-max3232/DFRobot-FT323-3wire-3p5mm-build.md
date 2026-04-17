@@ -104,6 +104,6 @@ Recovery steps:
 
 | Reference | Image |
 |---|---|
-| Actual FT232RL breakout used for this path | <img src="../../images/FT232RL.png" alt="DFRobot FT323/FT232RL breakout board" width="260"> |
+| Actual FT232RL breakout used for this path | <img src="../../images/dfrobot-ftdi" alt="DFRobot FT323/FT232RL breakout board" width="260"> |
 | TTL cable orientation reference | <img src="../../images/cablecyble.jpg" alt="TTL cable orientation" width="260"> |
 | SIC serial connector area | <img src="../../images/serialconnect.jpg" alt="SIC serial connector area" width="260"> |
