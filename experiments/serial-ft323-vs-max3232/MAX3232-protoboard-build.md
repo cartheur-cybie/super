@@ -2,6 +2,43 @@
 
 Use this when building your MAX3232 board from loose IC + protoboard.
 
+## MAX3232 DIP-16 Pinout Wiring (Use This First)
+
+| MAX3232 Pin | Signal | Connect To |
+|---|---|---|
+| 16 | VCC | `+3.3V` (or SIC logic rail in ~3.3-3.6V range) |
+| 15 | GND | Common ground (SIC + DB9 + board) |
+| 11 | T1IN (TTL in) | `SIC TX` |
+| 14 | T1OUT (RS-232 out) | `DB9 pin 2` (PC RX) |
+| 13 | R1IN (RS-232 in) | `DB9 pin 3` (PC TX) |
+| 12 | R1OUT (TTL out) | `SIC RX` |
+| DB9 pin 5 | Ground | Common ground |
+
+### Charge-Pump + Decoupling Capacitors
+
+| Capacitor | Between Pins |
+|---|---|
+| C1 | `pin 1 (C1+)` and `pin 3 (C1-)` |
+| C2 | `pin 4 (C2+)` and `pin 5 (C2-)` |
+| C3 | `pin 2 (V+)` and `GND` |
+| C4 | `pin 6 (V-)` and `GND` |
+| Decoupler | `pin 16 (VCC)` and `pin 15 (GND)` (place close to IC) |
+
+Use capacitor values from your exact MAX3232 datasheet/variant.
+
+### Stereo Jack Mapping Used in This Repo
+
+| Jack conductor | Signal |
+|---|---|
+| tip | `SIC TX` (to MAX3232 `pin 11`) |
+| center/ring | `SIC RX` (from MAX3232 `pin 12`) |
+| base | `GND` |
+
+Critical:
+
+* Do not feed external VCC into SIC serial lines.
+* Stop immediately if SIC-facing TTL high looks like ~5V.
+
 ## 1) Parts + Prep
 
 | Item | Check |
