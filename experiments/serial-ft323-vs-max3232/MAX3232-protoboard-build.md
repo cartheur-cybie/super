@@ -159,6 +159,22 @@ Command:
 | Outcome | |
 | Notes/fixes | |
 
+## No-CROMINST Recovery Path
+
+If CROMINST is not installed on SIC, `sicburn/sicgrab` serial ops will usually fail to handshake.
+
+Recovery steps:
+
+1. Boot SIC with a CROMINST-capable cartridge/setup.
+2. Use terminal at `9600 8N1` and verify repeating `U` stream.
+3. Press a key to stop `U` stream and enter CROMINST menu.
+4. Run install flow (`I`, then `YES`) and wait for completion.
+5. Reboot SIC and rerun quick validation:
+
+```bash
+./dev/serial-ops-sdk/validate-link.sh --device /dev/ttyUSB0 --path MAX3232
+```
+
 ## Photo Aids
 
 | Reference | Image |
