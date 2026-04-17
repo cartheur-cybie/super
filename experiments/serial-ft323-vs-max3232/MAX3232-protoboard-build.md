@@ -45,6 +45,23 @@ Critical:
 * Do not feed external VCC into SIC serial lines.
 * Stop immediately if SIC-facing TTL high looks like ~5V.
 
+## Power Source: Yurobot 545043 (USB 5V -> 3.3V)
+
+Use the Yurobot 545043 module as the dedicated MAX3232 supply.
+
+| Connection | Wire To |
+|---|---|
+| USB `5V` | `Yurobot VIN` |
+| USB `GND` | `Yurobot GND` |
+| `Yurobot 3.3V OUT` | `MAX3232 pin 16 (VCC)` |
+| `Yurobot GND` | `MAX3232 pin 15 (GND)` + SIC/DB9 common ground |
+
+Preflight checks:
+
+* Measure regulator output at module pins: target ~`3.3V`.
+* Verify common ground continuity across regulator, MAX3232, SIC, and DB9 pin 5.
+* Verify SIC-facing TTL lines are not near `5V`.
+
 ## 1) Parts + Prep
 
 | Item | Check |
