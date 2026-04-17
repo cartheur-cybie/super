@@ -53,3 +53,8 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# .NET local tooling and build artifacts
+.dotnet-home/
+**/bin/
+**/obj/
