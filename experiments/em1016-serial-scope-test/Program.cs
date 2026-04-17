@@ -156,7 +156,7 @@ static byte[] BuildAlt55AaPayload(CliOptions options)
 
 static byte[] BuildTextPayload(int sequence)
 {
-    var text = $"BETIX-PING {sequence:D4}\\r\\n";
+    var text = $"BETIX-PING {sequence:D4}\r\n";
     return Encoding.ASCII.GetBytes(text);
 }
 
