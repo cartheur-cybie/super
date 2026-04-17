@@ -110,6 +110,14 @@ Recovery steps:
 
 ## Photo References
 
+### Connection Table (Photo Companion)
+
+| Breakout Pin | 3-Wire Cable Label | Stereo Connector Conductor | SIC Signal |
+|---|---|---|---|
+| `TXD` | `RX wire` | `ring` (center) | `SIC RX` |
+| `RXD` | `TX wire` | `tip` | `SIC TX` |
+| `GND` | `GND wire` | `sleeve` (base) | `SIC GND` |
+
 | Reference | Image |
 |---|---|
 | Actual FT232RL breakout used for this path | <img src="../../images/dfrobot-ftdi" alt="DFRobot FT323/FT232RL breakout board" width="260"> |
